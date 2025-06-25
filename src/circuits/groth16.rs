@@ -146,6 +146,7 @@ mod tests {
     use super::*;
     use crate::circuits::bn254::g1::G1Affine;
     use crate::circuits::bn254::g2::G2Affine;
+    use crate::core::gc_scheme::GRR2withZK;
     use ark_crypto_primitives::snark::{CircuitSpecificSetupSNARK, SNARK};
     use ark_ff::{PrimeField, UniformRand};
     use ark_groth16::Groth16;
@@ -264,6 +265,7 @@ mod tests {
         let (result, gate_count) =
             groth16_verifier_evaluate_montgomery(public, proof_a, proof_b, proof_c, vk);
         gate_count.print();
+        Circuit::print_metrics::<GRR2withZK>(&gate_count);
         assert!(result.borrow().get_value());
     }
 }

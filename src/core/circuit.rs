@@ -1,4 +1,8 @@
-use crate::{bag::*, core::gate::GateCount};
+use crate::{
+    bag::*,
+    core::{gate::GateCount, gc_scheme::GCScheme},
+};
+use std::any::type_name;
 
 pub struct Circuit(pub Wires, pub Vec<Gate>);
 
@@ -68,6 +72,11 @@ impl Circuit {
             nimp,
             nsor,
         }
+    }
+
+    /// metrics
+    pub fn print_metrics<T: GCScheme>(gate_count: &GateCount) {
+        println!("{}, {:?}", type_name::<T>(), T::core_metrics(gate_count))
     }
 }
 
