@@ -1,6 +1,6 @@
 use crate::{
     bag::*,
-    core::{gate::GateCount, gc_scheme::GCScheme},
+    core::{gate::GateCount, gc_scheme_metrics::GCScheme},
 };
 use std::any::type_name;
 

@@ -146,7 +146,7 @@ mod tests {
     use super::*;
     use crate::circuits::bn254::g1::G1Affine;
     use crate::circuits::bn254::g2::G2Affine;
-    use crate::core::gc_scheme::GRR2withZK;
+    use crate::core::gc_scheme_metrics::GRR2withZK;
     use ark_crypto_primitives::snark::{CircuitSpecificSetupSNARK, SNARK};
     use ark_ff::{PrimeField, UniformRand};
     use ark_groth16::Groth16;
